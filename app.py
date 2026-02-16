@@ -133,3 +133,9 @@ def predict_and_backtest(company: str):
         "buy_and_hold_return_percent": round(buy_hold_return, 2),
         "model_strategy_return_percent": round(strategy_return, 2)
     }
+import os
+import uvicorn
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
